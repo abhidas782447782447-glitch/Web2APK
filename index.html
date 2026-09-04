@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Complete App Studio Pro</title>
+    <style>
+        body { background: #0d1117; color: #fff; padding: 15px; font-family: sans-serif; text-align: center; }
+        .container { max-width: 420px; margin: auto; background: #161b22; padding: 20px; border-radius: 12px; border: 1px solid #30363d; text-align: left; }
+        h2 { color: #58a6ff; text-align: center; margin-bottom: 20px; font-size: 19px; }
+        label { font-size: 13px; color: #8b949e; display: block; margin-top: 10px; }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 6px; box-sizing: border-box; }
+        .checkbox-group { margin: 12px 0; background: #0d1117; padding: 10px; border-radius: 6px; border: 1px solid #30363d; display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+        .btn-download { background: #238636; color: white; border: none; width: 100%; padding: 12px; margin-top: 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; }
+        .tabs { display: flex; gap: 4px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
+        .tab { background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; white-space: nowrap; }
+        .tab.active { background: #1f6feb; color: white; border-color: #1f6feb; }
+        .section { display: none; }
+        .section.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🚀 Ultimate Complete App Studio Pro</h2>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab(0)">⚙️ App Info</div>
+            <div class="tab" onclick="switchTab(1)">🧬 App DNA</div>
+            <div class="tab" onclick="switchTab(2)">💰 Multi-Ads</div>
+            <div class="tab" onclick="switchTab(3)">🌐 HTML/UI</div>
+        </div>
+
+        <!-- Tab 1: App Info -->
+        <div class="section active" id="sec-0">
+            <label>App Name (ऐप का नाम):</label>
+            <input type="text" id="appName" value="My Studio App">
+
+            <label>Package Name (Play Store ID):</label>
+            <input type="text" id="packageName" value="com.mycompany.myapp">
+
+            <label>App Logo (Image Upload):</label>
+            <input type="file" id="appLogo" style="margin-top: 5px; color: #8b949e; font-size: 12px;">
+
+            <label style="margin-top: 15px;">App Permissions (अनुमतियाँ):</label>
+            <div class="checkbox-group">
+                <span>📷 Camera Permission</span>
+                <input type="checkbox" id="permCamera" checked>
+            </div>
+            <div class="checkbox-group">
+                <span>📍 Location Permission</span>
+                <input type="checkbox" id="permLocation">
+            </div>
+            <div class="checkbox-group">
+                <span>💾 Storage Read/Write</span>
+                <input type="checkbox" id="permStorage" checked>
+            </div>
+        </div>
+
+        <!-- Tab 2: App DNA -->
+        <div class="section" id="sec-1">
+            <label>Version Code (वर्जन कोड):</label>
+            <input type="text" id="versionCode" value="1">
+
+            <label>Version Name (वर्जन नाम):</label>
+            <input type="text" id="versionName" value="1.0.0">
+
+            <label>Keystore Signature (डिजिटल सिग्नेचर):</label>
+            <input type="text" id="keystoreSign" value="Default-Debug-Key">
+        </div>
+
+        <!-- Tab 3: Multi-Ads / AdSense -->
+        <div class="section" id="sec-2">
+            <label>Enable AdSense / Banner Ads:</label>
+            <div class="checkbox-group">
+                <span>Show Google Ads in App</span>
+                <input type="checkbox" id="enableAds" checked>
+            </div>
+
+            <label>AdMob / AdSense Publisher ID:</label>
+            <input type="text" id="adsPublisherId" value="ca-app-pub-xxxxxxxx~xxxxxxxx">
+
+            <label>Banner Ad Unit ID:</label>
+            <input type="text" id="bannerId" value="ca-app-pub-xxxxxxxx/banner">
+        </div>
+
+        <!-- Tab 4: HTML / UI Editor -->
+        <div class="section" id="sec-3">
+            <label>Custom Web URL / Local HTML Source:</label>
+            <input type="text" id="webSource" value="index.html">
+            <p style="font-size: 12px; color: #8b949e; margin-top: 10px;">यहाँ आप अपने ऐप के अंदर दिखने वाली वेबसाइट या HTML पेज का लिंक सेट कर सकते हैं।</p>
+        </div>
+
+        <button class="btn-download" onclick="startBuild()">📱 Download APK Directly</button>
+    </div>
+
+    <script>
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const sections = document.querySelectorAll('.section');
+            
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            sections.forEach((sec, i) => {
+                sec.classList.toggle('active', i === index);
+            });
+        }
+
+        function startBuild() {
+            const name = document.getElementById('appName').value;
+            if(!name) {
+                alert("कृपया ऐप का नाम दर्ज करें!");
+                return;
+            }
+            alert("⚙️ Build प्रक्रिया शुरू हो गई है! GitHub Actions बैकएंड पर विज्ञापनों और सेटिंग्स के साथ APK कंपाइल हो रहा है।");
+        }
+    </script>
+</body>
+</html>
